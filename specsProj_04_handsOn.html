@@ -1,0 +1,56 @@
+<html>
+    <body>
+        <h3>Hands-On Project 1</h3>
+        <p>
+        Modify the List component to use shouldComponentUpdate so that when duplicate props are provided, the component does not re-render.</p>
+
+        <p>
+        You can use the 1 and 2 keys on your keyboard to change the props being passed into the List. Pressing the same key multiple times currently re-renders but after you add shouldComponentUpdate it shouldn't.</p>
+        <a href='http://localhost:3004/' target='_blank'>Solution</a></p>
+        <xmp>
+class List extends React.Component {
+  render() {
+  	console.log("List's render function"); // this should not happen if the exact same props are provided a second time
+    const list = this.props.items.map(item => (<li key={item}>{item}</li>));
+
+    return (
+      <ul>
+          {list}
+      </ul>
+    );
+  }
+}
+
+const list1Items = ['Eggs', 'Bread', 'Artisinal cheese'];
+const list2Items = ['Trains', 'Planes', 'Automobiles'];
+
+const render = (items) => {
+	console.log("outer render function");
+  ReactDOM.render(
+    <List items={items} />,
+    document.getElementById('root')
+  );
+}
+
+document.addEventListener('keydown', event => {
+  // this checks if the 1 key is pressed
+  if (event.code === 'Digit1') { 
+		render(list1Items);  
+  }
+  // this checks if the 2 key is pressed
+  else if (event.code === 'Digit2') { 
+	  render(list2Items);
+  }
+});
+
+render(list1Items);
+        </xmp>
+<h3>Hands-On Project 2 (Optional)</h3>
+<p>
+Starting with the same code as Project 1, use componentWillReceiveProps to perform the map operation once and save the result in the List component's state instead of each time the List component is rendered.</p>
+
+<h3>Hands-On Project 3 (Optional)</h3>
+<p>
+Modify the GitHubRepos component to contain a search field that updates the search field. Refresh the list of repos every 10 seconds using setInterval.</p>
+    </body>
+</html>

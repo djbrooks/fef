@@ -1,0 +1,46 @@
+<html>
+    <body>
+        <h3>Hands-On 5 Project 1 Convert to 2015 syntax</h3>
+        <p>
+            Convert the given JavaScript into 2015 syntax using an arrow
+            function and filter.
+        </p>
+        <a href='http://localhost:3005/' target='_blank'>Solution</a>
+        <xmp>
+const arr = [
+    {"name":"chevy", "count": 2},
+    {"name":"ford", "count": 5},
+    {"name":"acura", "count": 3},
+    {"name":"honda", "count": 16},
+];
+
+const newArr = [];
+
+for(let i= 0, l = arr.length; i< l; i++){
+    if(arr[i].name === "ford" ){
+		newArr.push(arr[i]);
+	}
+}
+
+console.log("Filter results:",newArr);
+    </xmp>
+
+        <h3>Hands-On 5 Project 2 Convert to 2015 syntax</h3>
+        <p>
+            Given the function, use the ES2015 we covered to combine the
+            two arrays.
+        </p>
+        <a href='http://localhost:3005/' target='_blank'>Solution</a>
+        <xmp>
+const arr = ['Bill', 'Joe', 'Emily', 'Andrea']
+const newStudents = ['Andrew', 'Tasha', 'Carol', 'George'];
+
+function addNewStudent(array, newArray) {
+  for(let i = 0; i < newArray.length; i++) {
+    array.push(newArray[i]);
+  }
+}
+addNewStudent(arr, newStudents);
+        </xmp>
+    </body>
+</html>
